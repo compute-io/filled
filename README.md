@@ -2,7 +2,7 @@ Filled
 ===
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![Dependencies][dependencies-image]][dependencies-url]
 
-> Creates a filled matrix or array.
+> Creates a filled [matrix](https://github.com/dstructs/matrix) or array.
 
 
 ## Installation
