@@ -40,6 +40,7 @@ describe( 'validate', function tests() {
 			assert.isTrue( validate( {}, values[ i ] ) instanceof TypeError );
 		}
 	});
+
 	it( 'should return an error if provided a dtype option which is not a string primitive', function test() {
 		var values, err;
 
