@@ -1,7 +1,7 @@
 {
-  "name": "compute-full",
+  "name": "compute-filled",
   "version": "0.0.0",
-  "description": "Creates a matrix or array where every element equals a specified value.",
+  "description": "Creates a filled matrix or array.",
   "author": {
     "name": "Athan Reines",
     "email": "kgryte@gmail.com"
@@ -20,17 +20,39 @@
   "main": "./lib",
   "repository": {
     "type": "git",
-    "url": "git://github.com/compute-io/full.git"
+    "url": "git://github.com/compute-io/filled.git"
   },
   "keywords": [
     "compute.io",
     "compute",
-    "computation"
+    "computation",
+    "utilities",
+    "utils",
+    "array",
+    "arrays",
+    "matrix",
+    "matrices",
+    "fill",
+    "filled",
+    "full",
+    "dense",
+    "typed-array",
+    "dstructs",
+    "ndarray",
+    "multidimensional",
+    "repeat"
   ],
   "bugs": {
-    "url": "https://github.com/compute-io/full/issues"
+    "url": "https://github.com/compute-io/filled/issues"
   },
-  "dependencies": {},
+  "dependencies": {
+    "compute-array-constructors": "^1.0.0",
+    "dstructs-matrix": "^2.0.0",
+    "validate.io-object": "^1.0.4",
+    "validate.io-positive-integer": "^1.0.0",
+    "validate.io-positive-integer-array": "^1.0.0",
+    "validate.io-string-primitive": "^1.0.0"
+  },
   "devDependencies": {
     "chai": "3.x.x",
     "mocha": "2.x.x",
