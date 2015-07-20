@@ -44,12 +44,12 @@ By default, the output data structure is a generic [`array`](https://developer.m
 var out;
 
 out = filled( 5, 1.5, {
-	'float32'
+	'dtype': 'float32'
 });
 // returns Float32Array( [1.5,1.5,1.5,1.5,1.5] );
 
 out = filled( [3,2], -1, {
-	'int32'
+	'dtype': 'int32'
 });
 /*
 	[ -1 -1
@@ -63,7 +63,7 @@ __Notes__:
 
 	``` javascript
 	var out = filled( [2,1,3], null, {
-		'float32'
+		'dtype': 'float32'
 	});
 	// returns [ [ [null,null,null] ], [ [null,null,null] ] ]
 	```
