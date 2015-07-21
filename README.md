@@ -102,20 +102,43 @@ out = fcn();
 
 __Notes__:
 *	When repeatedly creating [`arrays`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) having the same shape, creating a customized `filled` function will provide performance benefits.
-*	Non-numeric fill `values` are supported.
+*	Non-numeric fill `values` are supported. `array` and `object` fill values are essentially deep copied and replicated and do __not__ refer to the same memory address. 
 
 	``` javascript
 	var fcn, out;
 
+	// Strings:
+	fcn = filled.compile( 2, 'beep' );
+
+	out = fcn();
+	// returns [ 'beep', 'beep' ]
+
+	// +-Infinity:
+	fcn = filled.compile( 2, Number.NEGATIVE_INFINITY );
+
+	out = fcn();
+	// returns [ -inf, -inf ]
+
+	// Objects:
 	fcn = filled.compile( 2, {} );
 
 	out = fcn();
 	// returns [ {}, {} ]
 
+	out[ 0 ] === out[ 1 ];
+	// returns false
+
+	// Arrays:
 	fcn = filled.compiled( 2, [1,2,3] );
 
 	out = fcn();
 	// returns [ [1,2,3], [1,2,3] ]
+
+	// Dates:
+	fcn = filled.compile( 2, new Date() );
+
+	out = fcn();
+	// returns [ <Date>, <Date> ]
 	```
 
 
