@@ -8,5 +8,5 @@ TODO
 	-	typed-arrays
 		-	use constructor names
 	-	matrices
-		-	requires `eval` for local scope
+		-	requires `eval` for local scope and the `matrix` module
 	-	buffer

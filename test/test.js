@@ -80,24 +80,6 @@ describe( 'compute-filled', function tests() {
 		}
 	});
 
-	it( 'should throw an error if provided an unrecognized/unsupported data type option', function test() {
-		var values = [
-			'beep',
-			'boop'
-		];
-
-		for ( var i = 0; i < values.length; i++ ) {
-			expect( badValue( values[i] ) ).to.throw( Error );
-		}
-		function badValue( value ) {
-			return function() {
-				filled( [10], 5, {
-					'dtype': value
-				});
-			};
-		}
-	});
-
 	it( 'should return a filled matrix', function test() {
 		var actual, expected;
 
@@ -115,7 +97,7 @@ describe( 'compute-filled', function tests() {
 		assert.deepEqual( actual.data, expected );
 	});
 
-	it( 'should return a filled typed-array', function test() {
+	it( 'should return a filled typed array', function test() {
 		var expected,
 			actual,
 			pi;
@@ -159,22 +141,6 @@ describe( 'compute-filled', function tests() {
 		expected = [ [['a','a','a']], [['a','a','a']] ];
 
 		assert.deepEqual( actual, expected );
-	});
-
-	it( 'should support fast elements', function test() {
-		var actual, i;
-
-		this.timeout( 0 );
-
-		actual = filled( [100000], 10 );
-		for ( i = 0; i < actual.length; i++ ) {
-			assert.strictEqual( actual[ i ], 10 );
-		}
-
-		actual = filled( [100000,2], -10 );
-		for ( i = 0; i < actual.length; i++ ) {
-			assert.deepEqual( actual[ i ], [-10,-10] );
-		}
 	});
 
 	it( 'should, until ndarrays are supported, ignore the `dtype` option and return a generic multidimensional array for >2 dimensions', function test() {
