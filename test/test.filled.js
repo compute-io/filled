@@ -276,12 +276,7 @@ describe( 'create filled function', function tests() {
 
 		expected = new Array( 10 );
 		for ( i = 0; i < expected.length; i++ ) {
-			expected[ i ] = {
-				'0': 0,
-				'1': 0,
-				'2': 0,
-				'3': 0
-			};
+			expected[ i ] = JSON.parse( JSON.stringify( new Int8Array(4) ) );
 		}
 		actual = filled();
 
