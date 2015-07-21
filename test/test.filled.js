@@ -20,6 +20,9 @@ var expect = chai.expect,
 
 describe( 'create filled function', function tests() {
 
+	var pinf = Number.POSITIVE_INFINITY,
+		ninf = Number.NEGATIVE_INFINITY;
+
 	it( 'should export a function', function test() {
 		expect( createFcn ).to.be.a( 'function' );
 	});
@@ -140,6 +143,149 @@ describe( 'create filled function', function tests() {
 				assert.strictEqual( actual[i][j], expected[i][j], i + ',' + j );
 			}
 		}
+	});
+
+	it( 'should correctly serialize standard JavaScript values', function test() {
+		var expected,
+			actual,
+			filled,
+			v, i;
+
+		// Strings:
+		filled = createFcn( [10], 'beep' );
+
+		expected = new Array( 10 );
+		for ( i = 0; i < expected.length; i++ ) {
+			expected[ i ] = 'beep';
+		}
+		actual = filled();
+
+		assert.deepEqual( actual, expected, 'strings' );
+
+		// Dates:
+		v = new Date();
+		filled = createFcn( [10], v );
+
+		expected = new Array( 10 );
+		for ( i = 0; i < expected.length; i++ ) {
+			expected[ i ] = new Date( v );
+		}
+		actual = filled();
+
+		for ( i = 0; i < expected.length; i++ ) {
+			assert.strictEqual( actual[i].getTime(), expected[i].getTime(), 'dates ' + i );
+		}
+
+		// Arrays:
+		filled = createFcn( [10], [1,2,3] );
+
+		expected = new Array( 10 );
+		for ( i = 0; i < expected.length; i++ ) {
+			expected[ i ] = [1,2,3];
+		}
+		actual = filled();
+
+		assert.deepEqual( actual, expected, 'arrays' );
+
+		// Objects:
+		filled = createFcn( [10], {'beep': 'boop' } );
+
+		expected = new Array( 10 );
+		for ( i = 0; i < expected.length; i++ ) {
+			expected[ i ] = {'beep':'boop'};
+		}
+		actual = filled();
+
+		assert.deepEqual( actual, expected, 'objects' );
+
+		// Positive infinity:
+		filled = createFcn( [10], pinf );
+
+		expected = new Array( 10 );
+		for ( i = 0; i < expected.length; i++ ) {
+			expected[ i ] = pinf;
+		}
+		actual = filled();
+
+		assert.deepEqual( actual, expected, 'positive infinity' );
+
+		// Negative infinity:
+		filled = createFcn( [10], ninf );
+
+		expected = new Array( 10 );
+		for ( i = 0; i < expected.length; i++ ) {
+			expected[ i ] = ninf;
+		}
+		actual = filled();
+
+		assert.deepEqual( actual, expected, 'negative infinity' );
+
+		// Null:
+		filled = createFcn( [10], null );
+
+		expected = new Array( 10 );
+		for ( i = 0; i < expected.length; i++ ) {
+			expected[ i ] = null;
+		}
+		actual = filled();
+
+		assert.deepEqual( actual, expected, 'null' );
+
+		// Undefined:
+		filled = createFcn( [10], undefined );
+
+		expected = new Array( 10 );
+		for ( i = 0; i < expected.length; i++ ) {
+			expected[ i ] = undefined;
+		}
+		actual = filled();
+
+		assert.deepEqual( actual, expected, 'undefined' );
+
+		// True:
+		filled = createFcn( [10], true );
+
+		expected = new Array( 10 );
+		for ( i = 0; i < expected.length; i++ ) {
+			expected[ i ] = true;
+		}
+		actual = filled();
+
+		assert.deepEqual( actual, expected, 'true' );
+
+		// False:
+		filled = createFcn( [10], false );
+
+		expected = new Array( 10 );
+		for ( i = 0; i < expected.length; i++ ) {
+			expected[ i ] = false;
+		}
+		actual = filled();
+
+		assert.deepEqual( actual, expected, 'false' );
+	});
+
+	it( 'should rely on `toString()` for class instances and complex objects', function test() {
+		var expected,
+			actual,
+			filled,
+			i;
+
+		// Typed arrays:
+		filled = createFcn( [10], new Int8Array( 4 ) );
+
+		expected = new Array( 10 );
+		for ( i = 0; i < expected.length; i++ ) {
+			expected[ i ] = {
+				'0': 0,
+				'1': 0,
+				'2': 0,
+				'3': 0
+			};
+		}
+		actual = filled();
+
+		assert.deepEqual( actual, expected, 'typed arrays' );
 	});
 
 });
