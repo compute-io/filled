@@ -1,6 +1,6 @@
 Filled
 ===
-[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url] [![Dependencies][dependencies-image]][dependencies-url]
+[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][coverage-image]][coverage-url] [![Dependencies][dependencies-image]][dependencies-url]
 
 > Creates a filled [matrix](https://github.com/dstructs/matrix) or array.
 
@@ -102,7 +102,7 @@ out = fcn();
 
 __Notes__:
 *	When repeatedly creating [`arrays`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) having the same shape, creating a customized `filled` function will provide performance benefits.
-*	Non-numeric fill `values` are supported. `array` and `object` fill values are essentially deep copied and replicated and do __not__ refer to the same memory address. 
+*	Non-numeric fill `values` are supported. `array` and `object` fill values are essentially deep copied and replicated and do __not__ refer to the same memory address.
 
 	``` javascript
 	var fcn, out;
@@ -226,8 +226,8 @@ Copyright &copy; 2015. The [Compute.io](https://github.com/compute-io) Authors.
 [travis-image]: http://img.shields.io/travis/compute-io/filled/master.svg
 [travis-url]: https://travis-ci.org/compute-io/filled
 
-[coveralls-image]: https://img.shields.io/coveralls/compute-io/filled/master.svg
-[coveralls-url]: https://coveralls.io/r/compute-io/filled?branch=master
+[coverage-image]: https://img.shields.io/codecov/c/github/compute-io/filled/master.svg
+[coverage-url]: https://codecov.io/github/compute-io/filled?branch=master
 
 [dependencies-image]: http://img.shields.io/david/compute-io/filled.svg
 [dependencies-url]: https://david-dm.org/compute-io/filled

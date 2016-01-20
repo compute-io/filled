@@ -57,11 +57,11 @@
   },
   "devDependencies": {
     "chai": "3.x.x",
-    "mocha": "2.x.x",
-    "coveralls": "^2.11.1",
+    "codecov": "^1.0.1",
     "istanbul": "^0.3.0",
     "jshint": "2.x.x",
-    "jshint-stylish": "2.x.x"
+    "jshint-stylish": "2.x.x",
+    "mocha": "2.x.x"
   },
   "license": "MIT"
 }
