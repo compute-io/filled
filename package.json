@@ -1,6 +1,6 @@
 {
   "name": "compute-filled",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Creates a filled matrix or array.",
   "author": {
     "name": "Athan Reines",
